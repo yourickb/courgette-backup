@@ -1,4 +1,6 @@
 ﻿//Groep 4 Project B code
+using System;
+
 string keuze = "";
 string stopString = "";
 bool stop = true;
@@ -110,83 +112,5 @@ while (stop)
             }
             break;
 
-    {
-		"Straat": "Wijnhaven, 107, 3011 WN",
-		"Telefoonnummer": "010-5012345"
-	},
-
-	{
-		"Menu": "Voorgerechten",
-		"Gerecht 1": "Komt nog",
-		"Gerecht 2": "Komt nog",
-		"Gerecht 3": "Komt nog",
-		"Gerecht 4": "Komt nog",
-		"Gerecht 5": "Komt nog",
-		"Gerecht 6": "Komt nog",
-		"Gerecht 7": "Komt nog",
-		"Gerecht 8": "Komt nog",
-		"Gerecht 9": "Komt nog",
-		"Gerecht 10": "Komt nog"
-
-	},
-
-	{
-		"Menu": "Hoofdgerechten",
-		"Gerecht 1": "Komt nog",
-		"Gerecht 2": "Komt nog",
-		"Gerecht 3": "Komt nog",
-		"Gerecht 4": "Komt nog",
-		"Gerecht 5": "Komt nog",
-		"Gerecht 6": "Komt nog",
-		"Gerecht 7": "Komt nog",
-		"Gerecht 8": "Komt nog",
-		"Gerecht 9": "Komt nog",
-		"Gerecht 10": "Komt nog"
-
-	},
-
-	{
-		"Menu": "Nagerechten",
-		"Gerecht 1": "Komt nog",
-		"Gerecht 2": "Komt nog",
-		"Gerecht 3": "Komt nog",
-		"Gerecht 4": "Komt nog",
-		"Gerecht 5": "Komt nog",
-		"Gerecht 6": "Komt nog",
-		"Gerecht 7": "Komt nog",
-		"Gerecht 8": "Komt nog",
-		"Gerecht 9": "Komt nog",
-		"Gerecht 10": "Komt nog"
-
-	},
-
-	{
-
-		"Reservering 1": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 2": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 3": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 4": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 5": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 6": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 7": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 8": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 9": "Naam, telefoonnummer, datum, tijd",
-		"Reservering 10": "Naam, telefoonnummer, datum, tijd"
-
-	},
-
-	{
-
-		"Tafel 1": "Aantal personen, naam, tijd",
-		"Tafel 2": "Aantal personen, naam, tijd",
-		"Tafel 3": "Aantal personen, naam, tijd",
-		"Tafel 4": "Aantal personen, naam, tijd",
-		"Tafel 5": "Aantal personen, naam, tijd",
-		"Tafel 6": "Aantal personen, naam, tijd",
-		"Tafel 7": "Aantal personen, naam, tijd",
-		"Tafel 8": "Aantal personen, naam, tijd",
-		"Tafel 9": "Aantal personen, naam, tijd",
-		"Tafel 10": "Aantal personen, naam, tijd"
-	
-	}
+    }
 }
