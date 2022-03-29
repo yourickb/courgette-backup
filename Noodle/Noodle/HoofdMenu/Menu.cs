@@ -41,20 +41,20 @@ namespace Noodle
                     Display("Welkom bij Restaurant De Noodle");
                     Display("Kies alstublieft uit één van de volgende opties:");
                     Display("");
-                    Display("[1] review weergeven");
-                    Display("[2] inloggen");
-                    Display("[3] account aanmaken");
-                    Display("");
+                    Display("[1] Reserveer");
+                    Display("[2] GerechtenMenu");
+                    Display("[3] Informatie");
+                    Display("[4] Admin");
                 }
 
                 else
                 {
                     Display("Please choose one of the following options:");
                     Display("");
-                    Display("[1] Show review");
-                    Display("[2] Login");
-                    Display("[3] Create account");
-                    Display("");
+                    Display("[1] Reserveer");
+                    Display("[2] GerechtenMenu");
+                    Display("[3] Informatie");
+                    Display("[4] Admin");
                 }
 
                 input = Console.ReadKey();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Noodle\\Noodle\\Noodle.csproj": {}
+    "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Noodle\\Noodle\\Noodle.csproj": {
+    "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Noodle\\Noodle\\Noodle.csproj",
+        "projectUniqueName": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
         "projectName": "Noodle",
-        "projectPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Noodle\\Noodle\\Noodle.csproj",
+        "projectPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
         "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Noodle\\Noodle\\obj\\",
+        "outputPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
