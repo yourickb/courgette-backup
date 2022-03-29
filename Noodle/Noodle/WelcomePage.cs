@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
 using System.IO;
-using System.Text.Json.Serialization;
+
 
 
 namespace Noodle
@@ -42,11 +42,6 @@ namespace Noodle
     {
         var greetingsJson = Deserialize();
         return greetingsJson.ingelogdeMember;
-    }
-    public bool Getingelogd()
-    {
-        var greetingsJson = Deserialize();
-        return greetingsJson.ingelogd;
     }
     public override void Show()
     {
