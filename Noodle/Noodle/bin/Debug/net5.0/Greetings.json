@@ -1,7 +1,7 @@
 {
-  "language": "en",
-  "welkom_nl": "Welkom bij restaurant Noodle!",
-  "welkom_en": "Welcome",
+  "language": "nl",
+  "welkom_nl": "Welkom bij restaurant Noodle!\n\n\nDruk op [ENTER] om verder te gaan...",
+  "welkom_en": "Welcome to Noodle restaurant!\n\n\nPress [ENTER] to continue...",
   "ingelogd": false,
   "ingelogdeMember": null
 }
