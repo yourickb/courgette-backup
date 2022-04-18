@@ -17,34 +17,36 @@ namespace Noodle
             _next = new MainMenu();
             _next.SetPrevious(this);
         }
-    }
+    
 
     //Taal functie, niet af
-    public class Greetings
-    {
+        public class Greetings
+        {
         public string language { get; set; }
         public string welkom_nl { get; set; }
         public string welkom_en { get; set; }
-    }
+        public bool ingelogd { get; set; }
+        public string ingelogdeMember { get; set; }
+        }
 
-    public Greetings Deserialize()
-    {
+        public  Greetings Deserialize()
+        {
         string json = File.ReadAllText("greetings.json");
         var greetingsJson = JsonSerializer.Deserialize<Greetings>(json);
         return greetingsJson;
-    }
-    public string Getlanguage()
-    {
+        }
+        public string Getlanguage()
+        {
         var greetingsJson = Deserialize();
         return greetingsJson.language;
-    }
-    public string Getfullname()
-    {
+        }
+        public string Getfullname()
+        {
         var greetingsJson = Deserialize();
         return greetingsJson.ingelogdeMember;
-    }
-    public override void Show()
-    {
+        }
+        public override void Show()
+        {
         Log("[Step 1]");
 
 
@@ -72,16 +74,17 @@ namespace Noodle
         while (input.Key != ConsoleKey.Enter);
 
         _next.Show();
-    }
+        }
 
-    public void Serialize(Greetings greeting)
-    {
-        var serializeOptions = new JsonSerializerOptions
+        public void Serialize(Greetings greeting)
         {
-            WriteIndented = true
-        };
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
 
-        var greetingsJson = JsonSerializer.Serialize(greeting, serializeOptions);
-        File.WriteAllText("greetings.json", greetingsJson);
+            var greetingsJson = JsonSerializer.Serialize(greeting, serializeOptions);
+            File.WriteAllText("greetings.json", greetingsJson);
+        }
     }
 }
