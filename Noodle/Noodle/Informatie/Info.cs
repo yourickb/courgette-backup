@@ -9,10 +9,66 @@ namespace Noodle
 
     class Informatie : Step
     {
-        public Informatie()
+        public class ResInformatie
         {
+            public string Info { get; set; }
+        }
 
+        public ResInformatie Deserialize()
+        {
+            string json = File.ReadAllText("ResInformatie.json");
+            var ResInformatieJson = JsonSerializer.Deserialize<ResInformatie>(json);
+            return ResInformatieJson;
+        }
+
+        public override void Show()
+        {
+            Log("");
+            var greetingsJson = new WelcomePage();
+            string taalSetting = greetingsJson.Getlanguage();
+            ConsoleKeyInfo input;
+
+            do
+            {
+                {
+                    Console.Clear();
+                    var ResInformatieJson = Deserialize();
+                    if (taalSetting == "nl")
+                    {
+                        Console.WriteLine("Contactgegevens van het restaurant: ");
+                        Console.WriteLine(" ");
+                        Console.WriteLine(ResInformatieJson.Info);
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Contact details of the restaurant: ");
+                        Console.WriteLine(" ");
+                        Console.WriteLine(ResInformatieJson.Info);
+                    }
+
+                    input = Console.ReadKey();
+
+                }
+            }
+            while (input.Key != ConsoleKey.Escape);
+
+            if (input.Key == ConsoleKey.Escape)
+            {
+                var MainMenu = new MainMenu();
+                MainMenu.Show();
+
+            }
+        }
+        public void Serialize(ResInformatie informatie)
+        {
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            var ResInformatieJson = JsonSerializer.Serialize(informatie, serializeOptions);
+            File.WriteAllText("ResInformatie.json", ResInformatieJson);
         }
     }
-
 }
