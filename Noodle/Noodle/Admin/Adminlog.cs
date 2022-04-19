@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Noodle
 {
-    class Admin : Step
+    class Admin : Step // zie resoverzicht.cs voor uitleg
     {
         private readonly Step _option1_1;
         private readonly Step _option1_2;
@@ -14,7 +14,7 @@ namespace Noodle
         private readonly Step _option1_4;
 
         public Admin()
-        {
+        { //als je de optie kiest gaat ie over naar ResOverzicht.cs
             _option1_1 = new ResOverzicht();
             _option1_2 = new ResOverzicht();
             _option1_3 = new ResOverzicht();
@@ -61,6 +61,7 @@ namespace Noodle
 
                 input = Console.ReadKey();
             }
+            //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
             while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key != ConsoleKey.Escape);
 
             if (input.Key == ConsoleKey.D1)
@@ -84,7 +85,7 @@ namespace Noodle
             }
             
             if (input.Key == ConsoleKey.Escape)
-            {
+            { // als je key escape is gaat ie terug naar het mainmenu
                 var MainMenu = new MainMenu();
                 MainMenu.Show();
             }
