@@ -1,3 +1,7 @@
-  {
-    "Menu": "€ 15,- Kip\n€ 20,- Zalm\n"
-  }
+{
+  "Naam":null,
+  "Maand" : 0,
+  "Dag" : 0,
+  "Tijd": null,
+  "AantalPersonen" : 0
+}
