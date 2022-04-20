@@ -8,27 +8,26 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Frans\\.nuget\\packages\\": {}
+    "C:\\Users\\youri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Frans\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
+      "projectUniqueName": "C:\\Users\\youri\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
       "projectName": "Noodle",
-      "projectPath": "C:\\Users\\Frans\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
-      "packagesPath": "C:\\Users\\Frans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Frans\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\obj\\",
+      "projectPath": "C:\\Users\\youri\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
+      "packagesPath": "C:\\Users\\youri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\youri\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Frans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\youri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net5.0": {
@@ -60,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -16,7 +16,7 @@ namespace Noodle
         public Admin()
         { //als je de optie kiest gaat ie over naar ResOverzicht.cs
             _option1_1 = new ResOverzicht();
-            _option1_2 = new ResOverzicht();
+            _option1_2 = new TafelOverzicht();
             _option1_3 = new ResOverzicht();
             _option1_4 = new ResOverzicht();
 
@@ -39,7 +39,7 @@ namespace Noodle
 
                 if (taalSetting == "nl")
                 {
-                    Display("Kies alstublieft uit één van de volgende opties: (dit gaat allemaal nog alleen naar de AdminOverzichtReservering json file)");
+                    Display("Kies alstublieft uit één van de volgende opties: (3 en 4 werkt nog niet)");
                     Display("");
                     Display("[1] Overzicht van de reserveringen");
                     Display("[2] Overzicht van de tafels");
