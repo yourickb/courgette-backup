@@ -16,7 +16,7 @@ namespace Noodle
             _option1 = new Reserveer();
             _option2 = new GerechtenMenu();
             _option3 = new Informatie();
-            _option4 = new Admin();
+            _option4 = new AdminInlog();
 
             _option1.SetPrevious(this);
             _option2.SetPrevious(this);
@@ -55,7 +55,7 @@ namespace Noodle
                     Display("[1] Reserveer");
                     Display("[2] GerechtenMenu");
                     Display("[3] Informatie");
-                    Display("[4] Admin");
+                    Display("[4] Admin Inloggen");
                 }
 
                 input = Console.ReadKey();
