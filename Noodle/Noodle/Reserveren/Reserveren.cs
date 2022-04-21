@@ -14,6 +14,7 @@ namespace Noodle
         }
 
 
+
         public override void Show()
         {
             //Variable benoemen
@@ -120,12 +121,10 @@ namespace Noodle
                     {
                         Display("Voor reserveringen van meer dan 4 personen moet u even bellen naar het restaurant.");
                     }
-
-
-
                 }
             }
             while (reservatieNaam == null || reservatieDatumMaand == 0 || reservatieTijd == null || reservatieAantal == 0);
+
 
             //Met escape terug aan het einde
             input = Console.ReadKey();
@@ -133,37 +132,43 @@ namespace Noodle
             {
                 var MainMenu = new MainMenu();
                 MainMenu.Show();
+
             }
+
         }
 
-    }
-
-    /*
-    public class ReservatieInformatie
-    {
-        public string Naam { get; set; }
-        public int Maand { get; set; }
-        public int Dag { get; set; }
-        public string Tijd { get; set; }
-        public int AantalPersonen { get; set; }
-    }
-
-    public ReservatieInformatie Deserialize()
-    {
-        string json = File.ReadAllText("ReservatieInformatie.json");
-        var ReservatieInformatieJson = JsonSerializer.Deserialize<ReservatieInformatie>(json);
-        return ReservatieInformatieJson;
-    }
-
-    public void Serialize(ReservatieInformatie Informatie)
-    {
-        var serializeOptions = new JsonSerializerOptions
+        
+        public class ReservatieInformatie
         {
-            
-        };
+            public string Naam { get; set; } 
+            public int Maand { get; set; } 
+            public int Dag { get; set; } 
+            public string Tijd { get; set; }
+            public int AantalPersonen { get; set; } 
+        }
 
-        var ReservatieInformatieJson = JsonSerializer.Serialize(Informatie, serializeOptions);
-        File.WriteAllText("ReservatieInformatie.json", ReservatieInformatieJson);
+
+        public ReservatieInformatie Deserialize()
+        {
+            string json = File.ReadAllText("ReservatieInformatie.json");
+            var ReservatieInformatieJson = JsonSerializer.Deserialize<ReservatieInformatie>(json);
+            return ReservatieInformatieJson;
+        }
+
+
+        public void Serialize(ReservatieInformatie Informatie)
+        {
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+
+                
+            };
+
+            var ReservatieInformatieJson = JsonSerializer.Serialize(Informatie, serializeOptions);
+            File.WriteAllText("ReservatieInformatie.json", ReservatieInformatieJson);
+        }
+
+
     }
-    */
 }

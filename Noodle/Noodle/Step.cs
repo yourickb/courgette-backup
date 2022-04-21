@@ -30,6 +30,7 @@ namespace Noodle
 
         public virtual void Show()
         {
+
             throw new NotImplementedException("Let op: deze functie overschrijven");
         }
 
