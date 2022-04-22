@@ -9,11 +9,6 @@ namespace Noodle
 
     class Reserveer : Step
     {
-        public Reserveer()
-        {
-        }
-
-
 
         public override void Show()
         {
@@ -26,17 +21,39 @@ namespace Noodle
             int reservatieAantal = 0;
 
 
+
             do
             {
                 //Leeg maken van de console
                 Console.Clear();
                 string taalSetting = "nl";
+          
+
 
                 //Als het in het Nederlands staat
                 if (taalSetting == "nl")
                 {
                     Display("Bedankt voor het kiezen voor de Noodle \nOm te kunnen reserveren hebben wij wat informatie nodig");
                     Display("");
+
+                    //Enter om te beginnen met reserveren
+                    do
+                    {
+                        //Display dat je op enter moet klikken om terug te gaan
+                        Display("Klik op [enter] om de reservering te beginnen");
+                        input = Console.ReadKey();
+
+                        //Met escape terug aan het einde
+                        input = Console.ReadKey();
+                        if (input.Key == ConsoleKey.Escape)
+                        {
+                            var MainMenu = new MainMenu();
+                            MainMenu.Show();
+
+                        }
+                    }
+                    while (input.Key != ConsoleKey.Enter);
+
                     Display("\nVul alstublieft u hele naam in:");
 
                     //Invullen van de naam
@@ -47,10 +64,14 @@ namespace Noodle
                     //Controleert of de maand klopt, loopt van 1 tot en met 12
                     while (validMonth == false)
                     {
+                        
                         reservatieDatumMaand = Convert.ToInt32(Console.ReadLine());
                         if (reservatieDatumMaand <= 12 && reservatieDatumMaand > 0)
                         {
                             validMonth = true;
+                        }
+                        else if(reservatieDatumMaand == int){
+                            Display("peop");
                         }
                         else
                         {
@@ -111,7 +132,15 @@ namespace Noodle
 
                     Display("\nWelke tijd wilt u komen? (uur:minuut). U kunt per half uur reserveren.");
                     //Controleert of de tijd klopt.
-                    reservatieTijd = Console.ReadLine();
+                    reservatieTijd =Console.ReadLine();
+                    if (reservatieTijd != "17:00" || reservatieTijd != "")
+                    {
+                       ;
+                    }
+                    else if (reservatieTijd == null)
+                    {
+
+                    }
 
 
                     Display("\nMet hoeveel mensen wilt u komen?");
@@ -122,6 +151,7 @@ namespace Noodle
                         Display("Voor reserveringen van meer dan 4 personen moet u even bellen naar het restaurant.");
                     }
                 }
+                
             }
             while (reservatieNaam == null || reservatieDatumMaand == 0 || reservatieTijd == null || reservatieAantal == 0);
 
@@ -136,39 +166,6 @@ namespace Noodle
             }
 
         }
-
-        
-        public class ReservatieInformatie
-        {
-            public string Naam { get; set; } 
-            public int Maand { get; set; } 
-            public int Dag { get; set; } 
-            public string Tijd { get; set; }
-            public int AantalPersonen { get; set; } 
-        }
-
-
-        public ReservatieInformatie Deserialize()
-        {
-            string json = File.ReadAllText("ReservatieInformatie.json");
-            var ReservatieInformatieJson = JsonSerializer.Deserialize<ReservatieInformatie>(json);
-            return ReservatieInformatieJson;
-        }
-
-
-        public void Serialize(ReservatieInformatie Informatie)
-        {
-            var serializeOptions = new JsonSerializerOptions
-            {
-                WriteIndented = true
-
-                
-            };
-
-            var ReservatieInformatieJson = JsonSerializer.Serialize(Informatie, serializeOptions);
-            File.WriteAllText("ReservatieInformatie.json", ReservatieInformatieJson);
-        }
-
 
     }
 }
