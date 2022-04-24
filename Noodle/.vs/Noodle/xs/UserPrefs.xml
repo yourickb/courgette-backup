@@ -2,9 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.Noodle PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Noodle/Reserveren/Reserveren.cs">
     <Files>
-      <File FileName="Noodle/Reserveren/Reserveren.cs" Line="181" Column="66" />
-      <File FileName="Noodle/GerechtenMenu/HoofdGerechten.cs" />
-      <File FileName="Noodle/Step.cs" Line="34" Column="1" />
+      <File FileName="Noodle/Reserveren/Reserveren.cs" Line="29" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +12,6 @@
               <Node name="Admin" expanded="True" />
               <Node name="GerechtenMenu" expanded="True" />
               <Node name="HoofdMenu" expanded="True" />
-              <Node name="Informatie" expanded="True" />
               <Node name="Reserveren" expanded="True">
                 <Node name="Reserveren.cs" selected="True" />
               </Node>
