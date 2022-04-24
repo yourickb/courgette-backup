@@ -314,7 +314,7 @@ namespace Noodle
                     {
                         string currentYear = DateTime.Now.Year.ToString();
                         Console.Clear();
-                        Display("Thanks for making a reservation at 'The noodle'");
+                        Display("Thanks for making a reservation at 'The noodle'!");
                         Display($"\nName: {reservatieNaam} \nDate: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTime: {reservatieTijd}\nHow many people: {reservatieAantal}");
 
 
@@ -333,7 +333,7 @@ namespace Noodle
             {
                 var MainMenu = new MainMenu();
                 MainMenu.Show();
-
+    
             }
         }
     }
