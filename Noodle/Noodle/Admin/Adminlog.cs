@@ -14,11 +14,11 @@ namespace Noodle
         private readonly Step _option1_4;
 
         public Admin()
-        { //als je de optie kiest gaat ie over naar ResOverzicht.cs
+        { //als je de optie kiest gaat ie over naar ResOverzicht.cs of een van de andere
             _option1_1 = new ResOverzicht();
             _option1_2 = new TafelOverzicht();
-            _option1_3 = new ResOverzicht();
-            _option1_4 = new ResOverzicht();
+            _option1_3 = new TafelBestellingen();
+            _option1_4 = new MenuAanpassing();
 
             _option1_1.SetPrevious(this);
             _option1_2.SetPrevious(this);
@@ -39,7 +39,7 @@ namespace Noodle
 
                 if (taalSetting == "nl")
                 {
-                    Display("Kies alstublieft uit één van de volgende opties: (3 en 4 werkt nog niet)");
+                    Display("Kies alstublieft uit één van de volgende opties: (4 werkt nog niet helemaal)");
                     Display("");
                     Display("[1] Overzicht van de reserveringen");
                     Display("[2] Overzicht van de tafels");
