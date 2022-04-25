@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{054AD87E-4D07-48F6-96FB-A1BA8C50DDEE}|Default">
+  <MonoDevelop.Ide.ItemProperties.Noodle PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Noodle/Reserveren/Reserveren.cs">
+    <Files>
+      <File FileName="Noodle/Reserveren/Reserveren.cs" Line="29" Column="41" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Noodle" expanded="True">
+            <Node name="Noodle" expanded="True">
+              <Node name="Admin" expanded="True" />
+              <Node name="GerechtenMenu" expanded="True" />
+              <Node name="HoofdMenu" expanded="True" />
+              <Node name="Reserveren" expanded="True">
+                <Node name="Reserveren.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
