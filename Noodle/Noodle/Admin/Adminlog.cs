@@ -39,7 +39,7 @@ namespace Noodle
 
                 if (taalSetting == "nl")
                 {
-                    Display("Kies alstublieft uit één van de volgende opties: (4 werkt nog niet helemaal)");
+                    Display("Kies alstublieft uit één van de volgende opties: ");
                     Display("");
                     Display("[1] Overzicht van de reserveringen");
                     Display("[2] Overzicht van de tafels");
