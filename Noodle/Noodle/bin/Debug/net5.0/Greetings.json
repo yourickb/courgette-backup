@@ -1,7 +1,9 @@
 {
   "language": "nl",
-  "welkom_nl": "Welkom bij restaurant Noodle!\n\n\nDruk op [ENTER] om verder te gaan...",
-  "welkom_en": "Welcome to Noodle restaurant!\n\n\nPress [ENTER] to continue...",
+  "welkom_nl": " Welkom bij restaurant Noodle!\n\n\nDruk op [ENTER] om verder te gaan...",
+  "welkom_en": " Welcome to Noodle restaurant!\n\n\nPress [ENTER] to continue...",
   "ingelogd": false,
-  "ingelogdeMember": null
+  "ingelogdeMember": null,
+  "username": "Jan",
+  "password": "123"
 }

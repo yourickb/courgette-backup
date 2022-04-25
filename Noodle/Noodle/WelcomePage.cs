@@ -27,6 +27,8 @@ namespace Noodle
         public string welkom_en { get; set; }
         public bool ingelogd { get; set; }
         public string ingelogdeMember { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
         }
 
         public  Greetings Deserialize()
@@ -39,6 +41,16 @@ namespace Noodle
         {
         var greetingsJson = Deserialize();
         return greetingsJson.language;
+        }
+        public string Getusername()
+        {
+        var greetingsJson = Deserialize();
+        return greetingsJson.username;
+        }
+        public string Getpassword()
+        {
+        var greetingsJson = Deserialize();
+        return greetingsJson.password;
         }
         public string Getfullname()
         {

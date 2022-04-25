@@ -16,7 +16,7 @@ namespace Noodle
             _option1 = new Reserveer();
             _option2 = new GerechtenMenu();
             _option3 = new Informatie();
-            _option4 = new Admin();
+            _option4 = new AdminInlog();
 
             _option1.SetPrevious(this);
             _option2.SetPrevious(this);
@@ -38,8 +38,9 @@ namespace Noodle
 
                 if (taalSetting == "nl")
                 {
-                    Display("Welkom bij Restaurant De Noodle");
-                    Display("Kies alstublieft uit één van de volgende opties:");
+
+                    Display(" Welkom bij Restaurant De Noodle");
+                    Display(" Kies alstublieft uit één van de volgende opties:");
                     Display("");
                     Display("[1] Reserveer");
                     Display("[2] GerechtenMenu");
@@ -49,12 +50,12 @@ namespace Noodle
 
                 else
                 {
-                    Display("Please choose one of the following options:");
+                    Display(" Please choose one of the following options:");
                     Display("");
                     Display("[1] Reserveer");
                     Display("[2] GerechtenMenu");
                     Display("[3] Informatie");
-                    Display("[4] Admin");
+                    Display("[4] Admin Inloggen");
                 }
 
                 input = Console.ReadKey();
