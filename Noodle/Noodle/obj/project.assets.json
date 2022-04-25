@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mirza\\.nuget\\packages\\": {}
+    "C:\\Users\\Andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mirza\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
+      "projectUniqueName": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
       "projectName": "Noodle",
-      "projectPath": "C:\\Users\\mirza\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
-      "packagesPath": "C:\\Users\\mirza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mirza\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\obj\\",
+      "projectPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
+      "packagesPath": "C:\\Users\\Andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andre\\Dropbox\\Projects\\Github\\Courgette-Noodle\\Noodle\\Noodle\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mirza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
