@@ -139,7 +139,7 @@ namespace Noodle
                         }
                         else
                         {
-                            Display("\nDit is geen geldig maand. Vul alstublieft een nummer in.");
+                            Display("\nDit is geen geldig dag voor deze maand. Vul alstublieft een nummer in.");
                         }
 
                     }
@@ -184,7 +184,7 @@ namespace Noodle
                         string currentYear = DateTime.Now.Year.ToString();
                         Console.Clear();
                         Display("\nBedankt voor het reserveren.");
-                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}");
+                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [ESC] om terug te gaan naar het hoofdmenu");
 
 
 
@@ -346,7 +346,7 @@ namespace Noodle
                         string currentYear = DateTime.Now.Year.ToString();
                         Console.Clear();
                         Display("Thanks for making a reservation at 'The noodle'!");
-                        Display($"\nName: {reservatieNaam} \nDate: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTime: {reservatieTijd}\nHow many people: {reservatieAantal}");
+                        Display($"\nName: {reservatieNaam} \nDate: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTime: {reservatieTijd}\nHow many people: {reservatieAantal}\n Press [ESC] to go back to the main menu");
 
 
 
