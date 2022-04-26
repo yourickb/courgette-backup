@@ -3,6 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Noodle/Reserveren/Reserveren.cs">
     <Files>
       <File FileName="Noodle/Reserveren/Reserveren.cs" Line="29" Column="41" />
+      <File FileName="Noodle/HoofdMenu/Menu.cs" />
+      <File FileName="Noodle/Admin/AdminInlog.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
