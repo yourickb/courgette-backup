@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "ri9dgGP8Y5K4fmibPuptb4xOxMR3VYZcAXt7GRqlme3jpPAln0ihM1pBtmPiV/d6BnBul9oDZSgFZe4eE3ltRQ==",
+  "dgSpecHash": "8tfQ78jz6iuxhXKV1qHQKUmj5pnMTCuSJf3BreIjTAIyEA+lU0UZgDxC84BxOSGBvH0emDkQDWDEmXdgEBE0Ag==",
   "success": true,
-  "projectFilePath": "/Users/sophie/Documents/GitHub/Courgette-Noodle/Noodle/Noodle/Noodle.csproj",
+  "projectFilePath": "C:\\Users\\Frans\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\Noodle.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Frans\\Documents\\GitHub\\Courgette-Noodle\\Noodle\\Noodle\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
