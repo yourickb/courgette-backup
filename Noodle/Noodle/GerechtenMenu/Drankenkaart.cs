@@ -7,18 +7,18 @@ using System.Text.Json;
 namespace Noodle
 {
 
-    class Nagerechten : Step
+    class Drankenkaart : Step
     {
-        public class Menunagerechten
+        public class MenuDrankenkaart
         {
             public string Menu { get; set; }
         }
 
-        public Menunagerechten Deserialize()
+        public MenuDrankenkaart Deserialize()
         {
-            string json = File.ReadAllText("Menunagerechten.json");
-            var MenunagerechtenJson = JsonSerializer.Deserialize<Menunagerechten>(json);
-            return MenunagerechtenJson;
+        string json = File.ReadAllText("MenuDrankenkaart.json");
+        var MenuDrankenkaartJson = JsonSerializer.Deserialize<MenuDrankenkaart>(json);
+        return MenuDrankenkaartJson;
         }
 
         public override void Show()
@@ -32,25 +32,21 @@ namespace Noodle
             {
                 {
                     Console.Clear();
-                    var MenunagerechtenJson = Deserialize();
+                    var MenuDrankenkaartJson = Deserialize();
                     if (taalSetting == "nl")
                     {
-                        Console.WriteLine("Je kan uit de volgende nagerechten kiezen: ");
-                        Console.WriteLine(MenunagerechtenJson.Menu);
+                        Console.WriteLine("Je kan uit de volgende dranken kiezen: ");
+                        Console.WriteLine(MenuDrankenkaartJson.Menu);
                     }
 
-                    else
-                    {
-                        Console.WriteLine("You can choose from the following main courses: ");
-                        Console.WriteLine(MenunagerechtenJson.Menu);
-                    }
+
 
                     input = Console.ReadKey();
 
                 }
             }
             while (input.Key != ConsoleKey.Escape);
-
+            
             if (input.Key == ConsoleKey.Escape)
             {
                 var GerechtenMenu = new GerechtenMenu();
@@ -58,15 +54,15 @@ namespace Noodle
 
             }
         }
-        public void Serialize(Menunagerechten nagerechten)
+        public void Serialize(MenuDrankenkaart dranken)
         {
             var serializeOptions = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
 
-            var MenunagerechtenJson = JsonSerializer.Serialize(nagerechten, serializeOptions);
-            File.WriteAllText("Menuvoorgerechten.json", MenunagerechtenJson);
+            var MenuDrankenkaartJson = JsonSerializer.Serialize(dranken, serializeOptions);
+            File.WriteAllText("MenuDrankenkaart.json", MenuDrankenkaartJson);
         }
     }
 }

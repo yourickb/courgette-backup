@@ -12,16 +12,19 @@ namespace Noodle
         private readonly Step _option1_1;
         private readonly Step _option1_2;
         private readonly Step _option1_3;
+        private readonly Step _option1_4;
 
         public GerechtenMenu()
         {
             _option1_1 = new Voorgerechten();
             _option1_2 = new hoofdgerechten();
             _option1_3 = new Nagerechten();
+            _option1_4 = new Drankenkaart();
 
             _option1_1.SetPrevious(this);
             _option1_2.SetPrevious(this);
             _option1_3.SetPrevious(this);
+            _option1_4.SetPrevious(this);
         }
 
         public override void Show()
@@ -43,6 +46,7 @@ namespace Noodle
                     Display("[1] Voorgerechten");
                     Display("[2] Hoofdgerechten");
                     Display("[3] Nagerechten");
+                    Display("[4] Drankenkaart");
                     Display("");
                 }
 
@@ -58,7 +62,7 @@ namespace Noodle
 
                 input = Console.ReadKey();
             }
-            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key  != ConsoleKey.Escape);
+            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key  != ConsoleKey.Escape);
 
             if (input.Key == ConsoleKey.D1)
             {
@@ -73,6 +77,11 @@ namespace Noodle
             if (input.Key == ConsoleKey.D3)
             {
                 _option1_3.Show();
+            }
+
+            if(input.Key == ConsoleKey.D4)
+            {
+                _option1_4.Show();
             }
             
             if (input.Key == ConsoleKey.Escape)

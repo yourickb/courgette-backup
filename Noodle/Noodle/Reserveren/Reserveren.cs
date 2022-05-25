@@ -19,6 +19,7 @@ namespace Noodle
             int reservatieDatumDag = 0;
             string reservatieTijd = null;
             string reservatieAantal = null;
+            int jaar = DateTime.Now.Year;
 
 
             static void Terug()
@@ -70,41 +71,37 @@ namespace Noodle
                         {
                             Terug();
                         }
-                        else if (reservatieNaam.Length < 3)
-                        {
-                            Display("\nVul alstublieft een naam in");
-                            geldigeNaam = false;
-                        }
                         else
                         {
                             geldigeNaam = true;
                         }
-                    }  
+                    }
+
                     Display("\nWelke Maand wilt u komen?");
-                    bool validMonth = false;
-                    while(validMonth == false)
+                    bool geldigeMaand = false;
+                    while(geldigeMaand == false)
                     {
                         string maandString = Console.ReadLine();
                         if (maandString == "terug")
                         {
                             Terug();
                         }
-                        else if (int.TryParse(maandString, out reservatieDatumMaand) && reservatieDatumMaand <= 12)
+                        else if (int.TryParse(maandString, out reservatieDatumMaand) && reservatieDatumMaand <= 12 && reservatieDatumMaand > 0)
                         {
-                            validMonth = true;
+                            geldigeMaand = true;
 
                         }
                         else
                         {
                             Console.WriteLine("\nDeze maand is niet geldig. Vul alstublieft een nummer in tussen 1 (januari) en 12 (december)");
-                            validMonth = false;
+                            geldigeMaand = false;
                         }
                     }
                     Display("\nWelke Dag wilt u komen?");
 
                     //Controleert of de dag klopt. Met een max van het aantal dagen in die maand
-                    bool validDay = false;
-                    while (validDay == false)
+                    bool geldigeDag = false;
+                    while (geldigeDag == false)
                     {
                         string dagString = Console.ReadLine();
                         if (dagString == "terug")
@@ -119,12 +116,12 @@ namespace Noodle
                                 if (reservatieDatumDag < 0 || reservatieDatumDag > 31)
                                 {
                                     Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 31");
-                                    validDay = false;
+                                    geldigeDag = false;
 
                                 }
                                 else
                                 {
-                                    validDay = true;
+                                    geldigeDag = true;
                                 }
                             }
                             // Maanden met 30 dagen
@@ -133,24 +130,41 @@ namespace Noodle
                                 if (reservatieDatumDag < 0 || reservatieDatumMaand > 30)
                                 {
                                     Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en de 30");
-                                    validDay = false;
+                                    geldigeDag = false;
                                 }
                                 else
                                 {
-                                    validDay = true;
+                                    geldigeDag = true;
                                 }
                             }
+
                             //Februari
                             else if (reservatieDatumMaand == 2)
                             {
-                                if (reservatieDatumDag < 0 || reservatieDatumDag > 28)
+                                if (DateTime.IsLeapYear(jaar))
                                 {
-                                    Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 28");
-                                    validDay = false;
+                                    if (reservatieDatumDag < 0 || reservatieDatumDag > 29)
+                                    {
+                                        Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 29");
+                                        geldigeDag = false;
+                                    }
+                                    else
+                                    {
+                                        geldigeDag = true;
+                                    }
                                 }
+
                                 else
                                 {
-                                    validDay = true;
+                                    if (reservatieDatumDag < 0 || reservatieDatumDag > 28)
+                                    {
+                                        Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 28");
+                                        geldigeDag = false;
+                                    }
+                                    else
+                                    {
+                                        geldigeDag = true;
+                                    }
                                 }
                             }
                         }
@@ -166,8 +180,8 @@ namespace Noodle
                     Display("\nWelke tijd wilt u komen? (uur:minuut). U kunt per half uur reserveren. De eerst mogelijke tijd is 17:00. Reserveren kan tot 22:00.");
                     //Controleert of de tijd klopt.
 
-                    bool validTime = false;
-                    while(validTime == false)
+                    bool geldigeTijd = false;
+                    while(geldigeTijd == false)
                     {
                         reservatieTijd = Console.ReadLine();
                         if (reservatieTijd == "terug")
@@ -177,26 +191,35 @@ namespace Noodle
                         else if (reservatieTijd == "17:00" || reservatieTijd == "17:30" || reservatieTijd == "18:00" || reservatieTijd == "18:30" || reservatieTijd == "19:00"
                             || reservatieTijd == "19:30" || reservatieTijd == "20:00" || reservatieTijd == "20:30" || reservatieTijd == "21:00" || reservatieTijd == "21:30" || reservatieTijd == "22:00")
                         {
-                            validTime = true;
+                            geldigeTijd = true;
                         }
                         else
                         {
                             Display("\nDit is geen geldig tijd. Let op dat het binnen de reserveertijden valt. Er kan alleen per half uur gereserveerd worden. Noteer het op de volgende manier (uur:minuut)");
-                            validTime = false;
+                            geldigeTijd = false;
                         }
                     }
 
 
                     Display("\nMet hoeveel mensen wilt u komen?");
                     //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 4 plekken. Alles daarboven ervoor bellen
-                    reservatieAantal = Console.ReadLine();
-                    if (reservatieAantal == "terug")
+                    bool geldigAantalPersonen = false;
+                    while (geldigAantalPersonen == false)
                     {
-                        Terug();
-                    }
-                    else if (Convert.ToInt32(reservatieAantal) > 6)
-                    {
-                        Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.");
+                        reservatieAantal = Console.ReadLine();
+                        if (reservatieAantal == "terug")
+                        {
+                            Terug();
+                        }
+                        else if (Convert.ToInt32(reservatieAantal) > 6)
+                        {
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.\nTyp terug om naar het hoofdmenu te gaan");
+                            geldigAantalPersonen = false;
+                        }
+                        else
+                        {
+                            geldigAantalPersonen = true;
+                        }
                     }
 
                     Display("\nBedankt voor je reservering! Klik op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen klik dan op [TERUG]");
@@ -267,8 +290,8 @@ namespace Noodle
                     }
 
                     Display("\nWhich month would you like to come?");
-                    bool validMonth = false;
-                    while (validMonth == false)
+                    bool geldigeMaand = false;
+                    while (geldigeMaand == false)
                     {
                         string maandString = Console.ReadLine();
                         if (maandString == "terug")
@@ -277,20 +300,20 @@ namespace Noodle
                         }
                         else if (int.TryParse(maandString, out reservatieDatumMaand) && reservatieDatumMaand <= 12)
                         {
-                            validMonth = true;
+                            geldigeMaand = true;
 
                         }
                         else
                         {
                             Console.WriteLine("\nThis month is not valid. Please fill in a number between 1 (januari) and 12 (december)");
-                            validMonth = false;
+                            geldigeMaand = false;
                         }
                     }
                     Display("\nWhat day would you like to come?");
 
                     //Controleert of de dag klopt. Met een max van het aantal dagen in die maand
-                    bool validDay = false;
-                    while (validDay == false)
+                    bool geldigeDag = false;
+                    while (geldigeDag == false)
                     {
                         string dagString = Console.ReadLine();
                         if (dagString == "terug")
@@ -305,12 +328,12 @@ namespace Noodle
                                 if (reservatieDatumDag < 0 || reservatieDatumDag > 31)
                                 {
                                     Display("\nThis isn't a valid day for the month. Please fill in a number between 1 and 31.");
-                                    validDay = false;
+                                    geldigeDag = false;
 
                                 }
                                 else
                                 {
-                                    validDay = true;
+                                    geldigeDag = true;
                                 }
                             }
                             // Maanden met 30 dagen
@@ -319,11 +342,11 @@ namespace Noodle
                                 if (reservatieDatumDag < 0 || reservatieDatumMaand > 30)
                                 {
                                     Display("\nThis isn't a valid day for the month. Please fill in a number between 1 and 30.");
-                                    validDay = false;
+                                    geldigeDag = false;
                                 }
                                 else
                                 {
-                                    validDay = true;
+                                    geldigeDag = true;
                                 }
                             }
                             //Februari
@@ -332,11 +355,11 @@ namespace Noodle
                                 if (reservatieDatumDag < 0 || reservatieDatumDag > 28)
                                 {
                                     Display("\nThis isn't a valid day for the month. Please fill in a number between 1 and 28.");
-                                    validDay = false;
+                                    geldigeDag = false;
                                 }
                                 else
                                 {
-                                    validDay = true;
+                                    geldigeDag = true;
                                 }
                             }
                         }
@@ -353,8 +376,8 @@ namespace Noodle
                         
                     //Controleert of de tijd klopt.
 
-                    bool validTime = false;
-                    while (validTime == false)
+                    bool geldigeTijd = false;
+                    while (geldigeTijd == false)
                     {
                         reservatieTijd = Console.ReadLine();
                         if (reservatieTijd == "terug")
@@ -364,12 +387,12 @@ namespace Noodle
                         if (reservatieTijd == "17:00" || reservatieTijd == "17:30" || reservatieTijd == "18:00" || reservatieTijd == "18:30" || reservatieTijd == "19:00"
                             || reservatieTijd == "19:30" || reservatieTijd == "20:00" || reservatieTijd == "20:30" || reservatieTijd == "21:00" || reservatieTijd == "21:30" || reservatieTijd == "22:00")
                         {
-                            validTime = true;
+                            geldigeTijd = true;
                         }
                         else
                         {
                             Display("\nThis is not a valid time. Make sure to choose a time within the reservation hours. You can make a reservation per 30 minutes with the syntax hour:minutes");
-                            validTime = false;
+                            geldigeTijd = false;
                         }
                     }
 

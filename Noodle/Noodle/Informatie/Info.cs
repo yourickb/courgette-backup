@@ -35,8 +35,6 @@ namespace Noodle
                     var ResInformatieJson = Deserialize();
                     if (taalSetting == "nl")
                     {
-                        Console.WriteLine("Contactgegevens van het restaurant: ");
-                        Console.WriteLine(" ");
                         Console.WriteLine(ResInformatieJson.Info);
                     }
 
