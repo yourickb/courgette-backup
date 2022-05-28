@@ -211,10 +211,17 @@ namespace Noodle
                         {
                             Terug();
                         }
-                        else if (Convert.ToInt32(reservatieAantal) > 6)
+                        else if (reservatieAantal != "1" && reservatieAantal != "2" && reservatieAantal != "3" && reservatieAantal != "4" && reservatieAantal != "5" && reservatieAantal != "6")
                         {
-                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.\nTyp terug om naar het hoofdmenu te gaan");
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\n\nDruk [5] om terug om naar het hoofdmenu te gaan");
                             geldigAantalPersonen = false;
+                            input = Console.ReadKey();
+                            if (input.Key == ConsoleKey.D5)
+                            {
+                                var MainMenu = new MainMenu();
+                                MainMenu.Show();
+                            }
+                            
                         }
                         else
                         {
@@ -223,7 +230,7 @@ namespace Noodle
                     }
 
                     Display("\nBedankt voor je reservering! Klik op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen klik dan op [TERUG]");
-                    input = Console.ReadKey();
+
 
                     //Met escape terug aan het einde
                     input = Console.ReadKey();
