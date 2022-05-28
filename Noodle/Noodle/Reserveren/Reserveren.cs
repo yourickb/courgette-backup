@@ -19,7 +19,6 @@ namespace Noodle
             int reservatieDatumDag = 0;
             string reservatieTijd = null;
             string reservatieAantal = null;
-            int jaar = DateTime.Now.Year;
 
 
             static void Terug()
@@ -79,7 +78,10 @@ namespace Noodle
 
                     Display("\nWelke Maand wilt u komen?");
                     bool geldigeMaand = false;
-                    while(geldigeMaand == false)
+                    int jaar = DateTime.Now.Year;
+                    int reservatieDatumJaar = 0;
+
+                    while (geldigeMaand == false)
                     {
                         string maandString = Console.ReadLine();
                         if (maandString == "terug")
@@ -89,7 +91,14 @@ namespace Noodle
                         else if (int.TryParse(maandString, out reservatieDatumMaand) && reservatieDatumMaand <= 12 && reservatieDatumMaand > 0)
                         {
                             geldigeMaand = true;
-
+                            if(reservatieDatumMaand < DateTime.Now.Month)
+                            {
+                                reservatieDatumJaar =  DateTime.Now.AddYears(1).Year;
+                            }
+                            else
+                            {
+                                reservatieDatumJaar =  jaar;
+                            }
                         }
                         else
                         {
@@ -141,7 +150,7 @@ namespace Noodle
                             //Februari
                             else if (reservatieDatumMaand == 2)
                             {
-                                if (DateTime.IsLeapYear(jaar))
+                                if (DateTime.IsLeapYear(reservatieDatumJaar))
                                 {
                                     if (reservatieDatumDag < 0 || reservatieDatumDag > 29)
                                     {
@@ -168,11 +177,6 @@ namespace Noodle
                                 }
                             }
                         }
-                        else
-                        {
-                            Display("\nDit is geen geldig dag voor deze maand. Vul alstublieft een nummer in.");
-                        }
-
                     }
 
 
@@ -236,15 +240,11 @@ namespace Noodle
                     input = Console.ReadKey();
                     if (input.Key == ConsoleKey.Enter)
                     {
-                        string currentYear = DateTime.Now.Year.ToString();
                         Console.Clear();
                         Display("\nBedankt voor het reserveren.");
-                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [ESC] om terug te gaan naar het hoofdmenu");
-
-
-
-
+                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{reservatieDatumJaar} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [ESC] om terug te gaan naar het hoofdmenu");
                     }
+
                     if (input.Key == ConsoleKey.D5)
                     {
                         var MainMenu = new MainMenu();
