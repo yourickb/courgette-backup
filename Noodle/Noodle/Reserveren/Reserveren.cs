@@ -38,7 +38,7 @@ namespace Noodle
                 //Als het in het Nederlands staat
                 if (taalSetting == "nl")
                 {
-                    Display("Bedankt voor het kiezen voor de Noodle \nOm te kunnen reserveren hebben wij wat informatie nodig");
+                    Display("Bedankt voor het kiezen voor de Noodle! \nOm te kunnen reserveren hebben wij wat informatie nodig");
                     Display("");
 
                     //Enter om te beginnen met reserveren
