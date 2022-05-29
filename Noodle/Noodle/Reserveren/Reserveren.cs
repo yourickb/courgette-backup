@@ -144,12 +144,12 @@ namespace Noodle
                             if(reservatieDatumMaand < DateTime.Now.Month)
                             {
                                 reservatieDatumJaar =  DateTime.Now.AddYears(1).Year;
-                                Display(Convert.ToString(reservatieDatumJaar));
+
                             }
                             else
                             {
                                 reservatieDatumJaar =  jaar;
-                                Display(Convert.ToString(reservatieDatumJaar));
+
                             }
                         }
                         else
@@ -186,7 +186,7 @@ namespace Noodle
                                     if (reservatieDatumDag < DateTime.Now.Day && reservatieDatumMaand == DateTime.Now.Month)
                                     {
                                         reservatieDatumJaar = DateTime.Now.AddYears(1).Year;
-                                        Display(Convert.ToString(reservatieDatumJaar));
+
                                     }
                                 }
                             }
@@ -204,7 +204,6 @@ namespace Noodle
                                     if (reservatieDatumDag < DateTime.Now.Day && reservatieDatumMaand == DateTime.Now.Month)
                                     {
                                         reservatieDatumJaar = DateTime.Now.AddYears(1).Year;
-                                        Display(Convert.ToString(reservatieDatumJaar));
                                     }
                                 }
                             }
@@ -295,7 +294,7 @@ namespace Noodle
                         }
                     }
 
-                    Display("\nBedankt voor je reservering! Druk op [5] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen druk dan op [5]");
+                    Display("\nBedankt voor je reservering! Druk op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen druk dan op [5]");
 
 
                     //Met escape terug aan het einde
@@ -304,7 +303,7 @@ namespace Noodle
                     {
                         Console.Clear();
                         Display("\nBedankt voor het reserveren.");
-                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{reservatieDatumJaar} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [ESC] om terug te gaan naar het hoofdmenu");
+                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{reservatieDatumJaar} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [5] om terug te gaan naar het hoofdmenu");
                         if (Reserverings == ReturnLeeg())
                         {
                             Reserverings = "";
@@ -312,8 +311,20 @@ namespace Noodle
                         string dagZero = Zero(Convert.ToString(reservatieDatumDag));
                         string maandZero = Zero(Convert.ToString(reservatieDatumMaand));
                         string Jantien = "ID" + Convert.ToString(IDCounters) + "-" + dagZero + "/" + maandZero + "/" + Convert.ToString(reservatieDatumJaar) + "-" + reservatieAantal + " Personen-" + reservatieTijd + "-Naam: " + reservatieNaam;
-                        Display(Jantien);
-                        Reserverings += Jantien + "\n";
+                        //Display(Jantien);
+                        if (Reserverings != ReturnLeeg())
+                        {
+                            Reserverings += Jantien + "\n";
+                        }
+                        else if (Reserverings == ReturnLeeg())
+                        {
+                            Reserverings = Jantien + "\n";
+                        }
+                        else if (Reserverings == "")
+                        {
+                            Reserverings = ReturnLeeg();
+                        }
+
                         int Johan = IDCounters;
                         Johan += 1;
                         JsonDing(Reserverings, Johan);

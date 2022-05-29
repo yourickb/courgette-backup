@@ -47,7 +47,7 @@ namespace Noodle
                     Display("[2] Hoofdgerechten");
                     Display("[3] Nagerechten");
                     Display("[4] Drankenkaart");
-                    Display("");
+                    Display("[5] Terug");
                 }
 
                 else
@@ -62,7 +62,7 @@ namespace Noodle
 
                 input = Console.ReadKey();
             }
-            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key  != ConsoleKey.Escape);
+            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key  != ConsoleKey.D5);
 
             if (input.Key == ConsoleKey.D1)
             {
@@ -84,7 +84,7 @@ namespace Noodle
                 _option1_4.Show();
             }
             
-            if (input.Key == ConsoleKey.Escape)
+            if (input.Key == ConsoleKey.D5)
             {
                 var MainMenu = new MainMenu();
                 MainMenu.Show();
