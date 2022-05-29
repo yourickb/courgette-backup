@@ -42,11 +42,11 @@ namespace Noodle
                     password = Console.ReadLine();
                     if (username != goodUsername || password != goodPassword)
                     {
-                        Display("Je gebruikersnaam en/of wachtwoord is vekeerd, druk enter om het opnieuw te proberen, of druk escape om terug te gaan");
+                        Display("Je gebruikersnaam en/of wachtwoord is vekeerd, druk [ENTER] om het opnieuw te proberen, of druk [5] om terug te gaan");
                     }
                     if (username == goodUsername && password == goodPassword)
                     {
-                        Display("Druk enter om door te gaan");
+                        Display("Druk [ENTER] om door te gaan of druk [5] om terug te gaan");
                     }
 
                 }
@@ -62,17 +62,17 @@ namespace Noodle
                 }
 
                 input = Console.ReadKey();
-                if (username == "Jan" && password == "123")
+                if (username == "Jan" && password == "123" && input.Key == ConsoleKey.Enter)
                 {
                     _option1_1.Show();
                 }
                 
-                if (input.Key == ConsoleKey.Escape)
+                else if (input.Key == ConsoleKey.D5)
                 {
                     var MainMenu = new MainMenu();
                     MainMenu.Show();
                 }
-                input = Console.ReadKey();
+                //input = Console.ReadKey();
                 
                 if (username != "Jan" && password != "123")
                 {
@@ -81,14 +81,14 @@ namespace Noodle
                 }
             }
             //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
-            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key != ConsoleKey.Escape);
+            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key != ConsoleKey.D5);
 
             if (username == "Jan" && password == "123")
             {
                 _option1_1.Show();
             }
             
-            if (input.Key == ConsoleKey.Escape)
+            if (input.Key == ConsoleKey.D5)
             { // als je key escape is gaat ie terug naar het mainmenu
                 var MainMenu = new MainMenu();
                 MainMenu.Show();

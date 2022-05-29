@@ -49,9 +49,9 @@ namespace Noodle
 
                 }
             }
-            while (input.Key != ConsoleKey.Escape);
+            while (input.Key != ConsoleKey.D5);
             
-            if (input.Key == ConsoleKey.Escape)
+            if (input.Key == ConsoleKey.D5)
             {
                 var GerechtenMenu = new GerechtenMenu();
                 GerechtenMenu.Show();
