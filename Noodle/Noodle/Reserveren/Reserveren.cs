@@ -108,7 +108,7 @@ namespace Noodle
                     }
                     while (input.Key != ConsoleKey.Enter && input.Key != ConsoleKey.D5);
 
-                    Display("\nVul alstublieft u hele naam in:");
+                    Display("\nVul alstublieft uw voor- en achternaam in:");
 
                     //Invullen van de naam
                     bool geldigeNaam = false;
@@ -197,7 +197,7 @@ namespace Noodle
                             // Maanden met 30 dagen
                             else if (reservatieDatumMaand == 4 || reservatieDatumMaand == 6 || reservatieDatumMaand == 9 || reservatieDatumMaand == 11)
                             {
-                                if (reservatieDatumDag < 0 || reservatieDatumMaand > 30)
+                                if (reservatieDatumDag < 0 || reservatieDatumDag > 30)
                                 {
                                     Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en de 30");
                                     geldigeDag = false;
@@ -271,7 +271,7 @@ namespace Noodle
 
 
                     Display("\nMet hoeveel mensen wilt u komen?");
-                    //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 4 plekken. Alles daarboven ervoor bellen
+                    //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 6 plekken. Alles daarboven ervoor bellen
                     bool geldigAantalPersonen = false;
                     while (geldigAantalPersonen == false)
                     {
@@ -280,24 +280,27 @@ namespace Noodle
                         {
                             Terug();
                         }
-                        else if (reservatieAantal != "1" && reservatieAantal != "2" && reservatieAantal != "3" && reservatieAantal != "4" && reservatieAantal != "5" && reservatieAantal != "6")
+                        else if (reservatieAantal == "1" || reservatieAantal == "2" || reservatieAantal == "3" || reservatieAantal == "4" || reservatieAantal == "5" || reservatieAantal == "6")
                         {
-                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\n\nDruk [5] om terug om naar het hoofdmenu te gaan");
+                            geldigAantalPersonen = true;  
+                        }
+                        else if(Int32.Parse(reservatieAantal) < 1)
+                        {
+                            Display("Dit is geen geldig aantal mensen, vul gelieve een nummer boven de 0 in");
                             geldigAantalPersonen = false;
+                           
+                        }
+                        else
+                        {
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.\n\nDruk [5] om terug om naar het hoofdmenu te gaan.");
                             input = Console.ReadKey();
                             if (input.Key == ConsoleKey.D5)
                             {
                                 var MainMenu = new MainMenu();
                                 MainMenu.Show();
                             }
-                            
-                        }
-                        else
-                        {
-                            geldigAantalPersonen = true;
                         }
                     }
-
                     Display("\nBedankt voor je reservering! Druk op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen druk dan op [5]");
 
 
