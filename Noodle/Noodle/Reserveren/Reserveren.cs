@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace Noodle
 {
 
     class Reserveer : Step
     {
+        public class ReservatieInformaties
+        {
+            // string voor stukje "overzicht" in de json, voeg hier meer bij toe als je ook meer stukjes in de json zet
+            public string Reserveringen { get; set; }
+            public int IDCounter { get; set; }
+        }
+
+        public ReservatieInformaties Deserialize()
+        {
+            string json = File.ReadAllText("ReservatieInformatie.json");
+            var ReservatieInformatieJson = System.Text.Json.JsonSerializer.Deserialize<ReservatieInformaties>(json);
+            return ReservatieInformatieJson;
+        }
 
         public override void Show()
         {
@@ -19,8 +33,44 @@ namespace Noodle
             int reservatieDatumDag = 0;
             string reservatieTijd = null;
             string reservatieAantal = null;
+            var ReservatieInformatieJson = Deserialize();
+            string Reserverings = ReservatieInformatieJson.Reserveringen;
+            int IDCounters = ReservatieInformatieJson.IDCounter;
 
+            static void JsonDing(string kaas, int jen)
+            {
+                string Kees = kaas;
+                StringBuilder sb = new StringBuilder();
+                StringWriter sw = new StringWriter(sb);
+                int Jan = jen;
+                using (JsonWriter writer = new JsonTextWriter(sw))
+                {
+                    writer.Formatting = Formatting.Indented;
 
+                    writer.WriteStartObject();
+                    writer.WritePropertyName("Reserveringen");
+                    writer.WriteValue(Kees);
+                    writer.WritePropertyName("IDCounter");
+                    writer.WriteValue(Jan);
+                    writer.WriteEnd();
+                }
+                string json = JsonConvert.SerializeObject(sb);
+                string sk = (sb.ToString());
+                //Console.Clear();
+                //Console.WriteLine(sb.ToString());
+                File.WriteAllText("ReservatieInformatie.json", sk);
+            }
+            static string ReturnLeeg()
+            {
+                return "Er zijn geen reserveringen";
+            }
+            static string Zero(string number)
+            {
+                if (number == "1" || number == "2" || number == "3" || number == "4" || number == "5" || number == "6" || number == "7" || number == "8" || number == "9")
+                    return "0" + number;
+                else
+                    return number;
+            }
             static void Terug()
             {
                 var MainMenu = new MainMenu();
@@ -94,10 +144,12 @@ namespace Noodle
                             if(reservatieDatumMaand < DateTime.Now.Month)
                             {
                                 reservatieDatumJaar =  DateTime.Now.AddYears(1).Year;
+
                             }
                             else
                             {
                                 reservatieDatumJaar =  jaar;
+
                             }
                         }
                         else
@@ -131,6 +183,11 @@ namespace Noodle
                                 else
                                 {
                                     geldigeDag = true;
+                                    if (reservatieDatumDag < DateTime.Now.Day && reservatieDatumMaand == DateTime.Now.Month)
+                                    {
+                                        reservatieDatumJaar = DateTime.Now.AddYears(1).Year;
+
+                                    }
                                 }
                             }
                             // Maanden met 30 dagen
@@ -144,6 +201,10 @@ namespace Noodle
                                 else
                                 {
                                     geldigeDag = true;
+                                    if (reservatieDatumDag < DateTime.Now.Day && reservatieDatumMaand == DateTime.Now.Month)
+                                    {
+                                        reservatieDatumJaar = DateTime.Now.AddYears(1).Year;
+                                    }
                                 }
                             }
 
@@ -215,10 +276,17 @@ namespace Noodle
                         {
                             Terug();
                         }
-                        else if (Convert.ToInt32(reservatieAantal) > 6)
+                        else if (reservatieAantal != "1" && reservatieAantal != "2" && reservatieAantal != "3" && reservatieAantal != "4" && reservatieAantal != "5" && reservatieAantal != "6")
                         {
-                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.\nTyp terug om naar het hoofdmenu te gaan");
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\n\nDruk [5] om terug om naar het hoofdmenu te gaan");
                             geldigAantalPersonen = false;
+                            input = Console.ReadKey();
+                            if (input.Key == ConsoleKey.D5)
+                            {
+                                var MainMenu = new MainMenu();
+                                MainMenu.Show();
+                            }
+                            
                         }
                         else
                         {
@@ -226,8 +294,8 @@ namespace Noodle
                         }
                     }
 
-                    Display("\nBedankt voor je reservering! Klik op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen klik dan op [TERUG]");
-                    input = Console.ReadKey();
+                    Display("\nBedankt voor je reservering! Druk op [ENTER] om de reservering te bevestigen!\nAls u de reservering niet wilt bevestigen druk dan op [5]");
+
 
                     //Met escape terug aan het einde
                     input = Console.ReadKey();
@@ -235,7 +303,31 @@ namespace Noodle
                     {
                         Console.Clear();
                         Display("\nBedankt voor het reserveren.");
-                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{reservatieDatumJaar} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [ESC] om terug te gaan naar het hoofdmenu");
+                        Display($"\nNaam: {reservatieNaam} \nDatum: {reservatieDatumDag}-{reservatieDatumMaand}-{reservatieDatumJaar} \nTijd: {reservatieTijd}\nAantal personen: {reservatieAantal}\nKlik op [5] om terug te gaan naar het hoofdmenu");
+                        if (Reserverings == ReturnLeeg())
+                        {
+                            Reserverings = "";
+                        }
+                        string dagZero = Zero(Convert.ToString(reservatieDatumDag));
+                        string maandZero = Zero(Convert.ToString(reservatieDatumMaand));
+                        string Jantien = "ID" + Convert.ToString(IDCounters) + "-" + dagZero + "/" + maandZero + "/" + Convert.ToString(reservatieDatumJaar) + "-" + reservatieAantal + " Personen-" + reservatieTijd + "-Naam: " + reservatieNaam;
+                        //Display(Jantien);
+                        if (Reserverings != ReturnLeeg())
+                        {
+                            Reserverings += Jantien + "\n";
+                        }
+                        else if (Reserverings == ReturnLeeg())
+                        {
+                            Reserverings = Jantien + "\n";
+                        }
+                        else if (Reserverings == "")
+                        {
+                            Reserverings = ReturnLeeg();
+                        }
+
+                        int Johan = IDCounters;
+                        Johan += 1;
+                        JsonDing(Reserverings, Johan);
                     }
 
                     if (input.Key == ConsoleKey.D5)
@@ -420,7 +512,16 @@ namespace Noodle
                         Console.Clear();
                         Display("Thanks for making a reservation at 'The noodle'!");
                         Display($"\nName: {reservatieNaam} \nDate: {reservatieDatumDag}-{reservatieDatumMaand}-{currentYear} \nTime: {reservatieTijd}\nHow many people: {reservatieAantal}\n Press [ESC] to go back to the main menu");
+                        if (Reserverings == ReturnLeeg())
+                        {
+                            Reserverings = "";
+                        }
 
+                        string Jantien = "ID" + Convert.ToString(IDCounters) + "-" + Convert.ToString(reservatieDatumDag) + "/" + Convert.ToString(reservatieDatumMaand) + "/" + currentYear + "-" + reservatieAantal + " Personen-" + reservatieTijd +"-Naam: " + reservatieNaam;
+                        Reserverings += Jantien + "\n";
+                        int Johan = IDCounters;
+                        Johan += 1;
+                        JsonDing(Reserverings, Johan);
 
 
 
@@ -444,6 +545,17 @@ namespace Noodle
                 MainMenu.Show();
     
             }
+        
+        }
+        public void Serialize(ResOverzicht resoverzicht)
+        {
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+            // serialized het weer want vs wil dat
+            var ReservatieInformatieJson = System.Text.Json.JsonSerializer.Serialize(resoverzicht, serializeOptions);
+            File.WriteAllText("ReservatieInformatie.json", ReservatieInformatieJson);
         }
     }
 }
