@@ -38,13 +38,6 @@ namespace Noodle
                         Console.WriteLine("Je kan uit de volgende nagerechten kiezen: ");
                         Console.WriteLine(MenunagerechtenJson.Menu);
                     }
-
-                    else
-                    {
-                        Console.WriteLine("You can choose from the following main courses: ");
-                        Console.WriteLine(MenunagerechtenJson.Menu);
-                    }
-
                     input = Console.ReadKey();
 
                 }

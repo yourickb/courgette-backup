@@ -1,3 +1,43 @@
 ﻿<Properties StartupConfiguration="{3F337089-946E-4962-BCC7-0A6570EE4151}|Default">
+  <MonoDevelop.Ide.ItemProperties.Noodle PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WelcomePage.cs">
+    <Files>
+      <File FileName="Reserveren/Reserveren.cs" Line="87" Column="1" />
+      <File FileName="Admin/AdminInlog.cs" Line="76" Column="63" />
+      <File FileName="Admin/Adminlog.cs" Line="49" Column="18" />
+      <File FileName="Admin/MenuAanpassing.cs" Line="45" Column="9" />
+      <File FileName="Admin/ResOverzicht.cs" Line="1" Column="1" />
+      <File FileName="Admin/TafelBestellingen.cs" Line="41" Column="22" />
+      <File FileName="Admin/TafelOverzicht.cs" Line="41" Column="22" />
+      <File FileName="GerechtenMenu/Drankenkaart.cs" Line="40" Column="22" />
+      <File FileName="GerechtenMenu/Gerechten.cs" Line="51" Column="18" />
+      <File FileName="GerechtenMenu/HoofdGerechten.cs" Line="40" Column="22" />
+      <File FileName="GerechtenMenu/Nagerechten.cs" Line="40" Column="22" />
+      <File FileName="GerechtenMenu/Voorgerechten.cs" Line="40" Column="22" />
+      <File FileName="HoofdMenu/Menu.cs" Line="49" Column="18" />
+      <File FileName="Informatie/Info.cs" Line="39" Column="22" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Restaurant.cs" Line="1" Column="1" />
+      <File FileName="Step.cs" Line="1" Column="1" />
+      <File FileName="tijdorder.txt" Line="1" Column="1" />
+      <File FileName="WelcomePage.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Noodle" expanded="True">
+            <Node name="Noodle" expanded="True">
+              <Node name="WelcomePage.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

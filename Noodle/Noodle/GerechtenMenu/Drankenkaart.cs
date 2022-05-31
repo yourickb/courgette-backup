@@ -38,9 +38,6 @@ namespace Noodle
                         Console.WriteLine("Je kan uit de volgende dranken kiezen: ");
                         Console.WriteLine(MenuDrankenkaartJson.Menu);
                     }
-
-
-
                     input = Console.ReadKey();
 
                 }

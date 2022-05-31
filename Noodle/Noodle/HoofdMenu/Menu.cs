@@ -47,17 +47,6 @@ namespace Noodle
                     Display("[3] Informatie");
                     Display("[4] Admin");
                 }
-
-                else
-                {
-                    Display(" Please choose one of the following options:");
-                    Display("");
-                    Display("[1] Reserveer");
-                    Display("[2] GerechtenMenu");
-                    Display("[3] Informatie");
-                    Display("[4] Admin Inloggen");
-                }
-
                 input = Console.ReadKey();
             }
             while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4);
