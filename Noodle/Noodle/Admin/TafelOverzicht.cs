@@ -39,12 +39,6 @@ namespace Noodle
                         Console.WriteLine("Hier is het overzicht van de tafels: ");
                         Console.WriteLine(TafelOverzichtReserveringJson.Tafel);
                     }
-
-                    else
-                    {
-                        Console.WriteLine("Here is the overview of the tables: ");
-                        Console.WriteLine(TafelOverzichtReserveringJson.Tafel);
-                    }
                     // input wordt wat de gebruiker erin typt
                     input = Console.ReadKey();
 

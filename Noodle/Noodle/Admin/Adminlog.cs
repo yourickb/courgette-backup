@@ -47,18 +47,6 @@ namespace Noodle
                     //Display("[4] Aanpassen van het menu");
                     Display("[5] Terug gaan naar het hoofdmenu");
                 }
-
-                else
-                {
-                    Display("Please choose one of the following options:");
-                    Display("");
-                    Display("[1] Overview of the reservations");
-                    //Display("[2] Overview of the tables");
-                    //Display("[3] Orders per table");
-                    //Display("[4] Change the menu");
-                    Display("[5] Go back to the main menu");
-                }
-
                 input = Console.ReadKey();
             }
             //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
