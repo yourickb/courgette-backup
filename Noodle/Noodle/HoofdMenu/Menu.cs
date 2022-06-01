@@ -39,7 +39,7 @@ namespace Noodle
                 if (taalSetting == "nl")
                 {
 
-                    Display("Welkom bij Restaurant De Noodle");
+                    Display("Welkom bij Restaurant Noodle");
                     Display("Kies alstublieft uit één van de volgende opties:");
                     Display("");
                     Display("[1] Reserveer");
