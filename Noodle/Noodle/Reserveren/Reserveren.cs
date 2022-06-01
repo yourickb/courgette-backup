@@ -178,7 +178,7 @@ namespace Noodle
                             //  Maanden met 31 dagen
                             if (reservatieDatumMaand == 1 || reservatieDatumMaand == 3 || reservatieDatumMaand == 5 || reservatieDatumMaand == 7 || reservatieDatumMaand == 8 || reservatieDatumMaand == 10 || reservatieDatumMaand == 12)
                             {
-                                if (reservatieDatumDag < 0 || reservatieDatumDag > 31)
+                                if (reservatieDatumDag < 1 || reservatieDatumDag > 31)
                                 {
                                     Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 31");
                                     geldigeDag = false;
@@ -197,7 +197,7 @@ namespace Noodle
                             // Maanden met 30 dagen
                             else if (reservatieDatumMaand == 4 || reservatieDatumMaand == 6 || reservatieDatumMaand == 9 || reservatieDatumMaand == 11)
                             {
-                                if (reservatieDatumDag < 0 || reservatieDatumDag > 30)
+                                if (reservatieDatumDag < 1 || reservatieDatumDag > 30)
                                 {
                                     Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en de 30");
                                     geldigeDag = false;
@@ -217,7 +217,7 @@ namespace Noodle
                             {
                                 if (DateTime.IsLeapYear(reservatieDatumJaar))
                                 {
-                                    if (reservatieDatumDag < 0 || reservatieDatumDag > 29)
+                                    if (reservatieDatumDag < 1 || reservatieDatumDag > 29)
                                     {
                                         Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 29");
                                         geldigeDag = false;
@@ -230,7 +230,7 @@ namespace Noodle
 
                                 else
                                 {
-                                    if (reservatieDatumDag < 0 || reservatieDatumDag > 28)
+                                    if (reservatieDatumDag < 1 || reservatieDatumDag > 28)
                                     {
                                         Display("\nDit is geen geldige dag voor deze maand. Vul alstublieft een nummer in tussen de 1 en 28");
                                         geldigeDag = false;
