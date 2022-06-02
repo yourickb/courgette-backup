@@ -37,14 +37,6 @@ namespace Noodle
                     {
                         Console.WriteLine(ResInformatieJson.Info);
                     }
-
-                    else
-                    {
-                        Console.WriteLine("Contact details of the restaurant: ");
-                        Console.WriteLine(" ");
-                        Console.WriteLine(ResInformatieJson.Info);
-                    }
-
                     input = Console.ReadKey();
 
                 }

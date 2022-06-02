@@ -51,18 +51,8 @@ namespace Noodle
 
                 }
 
-
-                else
-                {
-                    Display("Admin Login!\n");
-                    Display("Fill your username and password in!\n\n");
-                    Display("Username :\n");
-                    Display("Password");
-                    Display("");
-                }
-
                 input = Console.ReadKey();
-                if (username == "Jan" && password == "123" && input.Key == ConsoleKey.Enter)
+                if (username == "admin" && password == "noodle1992" && input.Key == ConsoleKey.Enter)
                 {
                     _option1_1.Show();
                 }
@@ -74,7 +64,7 @@ namespace Noodle
                 }
                 //input = Console.ReadKey();
                 
-                if (username != "Jan" && password != "123")
+                if (username != "admin" && password != "noodle1992")
                 {
                     var Admin1 = new AdminInlog();
                     Admin1.Show();
@@ -83,7 +73,7 @@ namespace Noodle
             //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
             while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key != ConsoleKey.D5);
 
-            if (username == "Jan" && password == "123")
+            if (username == "admin" && password == "noodle1992")
             {
                 _option1_1.Show();
             }

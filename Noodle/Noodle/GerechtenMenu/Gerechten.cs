@@ -49,17 +49,6 @@ namespace Noodle
                     Display("[4] Drankenkaart");
                     Display("[5] Terug");
                 }
-
-                else
-                {
-                    Display("Please choose one of the following options:");
-                    Display("");
-                    Display("[1] Starter");
-                    Display("[2] Main course ");
-                    Display("[3] dessert");
-                    Display("");
-                }
-
                 input = Console.ReadKey();
             }
             while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key  != ConsoleKey.D5);
