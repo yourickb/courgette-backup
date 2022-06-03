@@ -35,20 +35,33 @@ namespace Noodle
                 if (taalSetting == "nl")
                 {
                     Display("Admin Login!");
-                    Display("Vul uw admin gebruikersnaam en wachtwoord in!\n\n");
-                    Display("Gebruikersnaam :");
-                    inputUsername = Console.ReadLine();
-                    Display("Wachtwoord :");
-                    inputPassword = Console.ReadLine();
-                    if (inputUsername != goodUsername || inputPassword != goodPassword)
+                    Display("Vul uw admin gebruikersnaam en wachtwoord in!");
+                    bool correcteInlog = false;
+                    while (correcteInlog == false)
                     {
-                        Display("Je gebruikersnaam en/of wachtwoord is vekeerd, druk [ENTER] om het opnieuw te proberen, of druk [5] om terug te gaan");
-                    }
-                    if (inputUsername == goodUsername && inputPassword == goodPassword)
-                    {
-                        Display("Druk [ENTER] om door te gaan of druk [5] om terug te gaan");
-                    }
+                        Display("\nGebruikersnaam :");
+                        inputUsername =  Console.ReadLine();
+                        if (inputUsername == "terug")
+                        {
+                            var MainMenu = new MainMenu();
+                            MainMenu.Show();
+                        }
+                        Display("Wachtwoord :");
+                        inputPassword = Console.ReadLine();
 
+
+                        if (inputUsername != goodUsername || inputPassword != goodPassword)
+                        {
+                            
+                            Display("Je gebruikersnaam en/of wachtwoord is vekeerd, proberen het opnieuw, of typ 'terug' als gebruiksnaam om terug te gaan");
+                            correcteInlog = false;
+                        }
+                        else
+                        {
+                            Display("Druk [ENTER] om door te gaan of druk [5] om terug te gaan");
+                            correcteInlog = true;
+                        }
+                    }
                 }
 
                 input = Console.ReadKey();
@@ -57,7 +70,7 @@ namespace Noodle
             //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
             while (input.Key != ConsoleKey.Enter && input.Key != ConsoleKey.D5);
 
-            if (inputUsername == goodUsername && inputPassword == goodPassword && input.Key == ConsoleKey.Enter)
+            if (input.Key == ConsoleKey.Enter)
             {
                 _option1_1.Show();
             }

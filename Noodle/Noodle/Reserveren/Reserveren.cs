@@ -43,6 +43,8 @@ namespace Noodle
             int[] resMaand31Dagen = { 1, 3, 5, 7, 8, 10, 12 };
             int[] resMaand30Dagen = { 4, 6, 9, 11 };
             string[] maxPersonen = { "1", "2", "3", "4", "5", "6"};
+            string[] ongeldigPersonen = { "0", "-1", "-2", "-3", "-4", "-5" };
+            string[] overMaxPersonen = { "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
 
             static void jsonWriter(string reservering, int idCount) // JSON writer wat er voor zorgt dat elke nieuwe reservering opgeslagen wordt
             {
@@ -276,7 +278,7 @@ namespace Noodle
                     }
 
 
-                    Display("\nMet hoeveel mensen wilt u komen?");
+                    Display("\nMet hoeveel mensen wilt u komen? (als getal)");
                     //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 4 plekken. Alles daarboven ervoor bellen
                     bool geldigAantalPersonen = false;
                     while (geldigAantalPersonen == false)
@@ -290,9 +292,19 @@ namespace Noodle
                         {
                             geldigAantalPersonen = true;
                         }
+                        else if (ongeldigPersonen.Contains(reservatieAantal))
+                        {
+                            Display("\nDit is geen geldig aantal personen.\nTyp een ander getal in of typ 'terug' om af te breken.");
+                            geldigAantalPersonen = false;
+                        }
+                        else if (overMaxPersonen.Contains(reservatieAantal))
+                        {
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant.\nTyp een ander getal in of typ 'terug' om af te breken.");
+                            geldigAantalPersonen = false;
+                        }
                         else
                         {
-                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\n\nDruk [5] om terug om naar het hoofdmenu te gaan");
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\nTyp een ander getal in of typ 'terug' om af te breken.");
                             geldigAantalPersonen = false;
                         }
                     }
