@@ -45,6 +45,7 @@ namespace Noodle
                     //Display("[2] Overzicht van de tafels");
                     //Display("[3] Bestellingen per tafel");
                     //Display("[4] Aanpassen van het menu");
+                    // ongebruikt vanwege opgestapte projectleden
                     Display("[5] Terug gaan naar het hoofdmenu");
                 }
                 input = Console.ReadKey();

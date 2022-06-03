@@ -25,8 +25,8 @@ namespace Noodle
             string goodUsername = greetingsJson.Getusername();
             string goodPassword = greetingsJson.Getpassword();
             ConsoleKeyInfo input;
-            string username = "";
-            string password = "";
+            string inputUsername = "";
+            string inputPassword = "";
 
             do
             {
@@ -37,14 +37,14 @@ namespace Noodle
                     Display("Admin Login!");
                     Display("Vul uw admin gebruikersnaam en wachtwoord in!\n\n");
                     Display("Gebruikersnaam :");
-                    username = Console.ReadLine();
+                    inputUsername = Console.ReadLine();
                     Display("Wachtwoord :");
-                    password = Console.ReadLine();
-                    if (username != goodUsername || password != goodPassword)
+                    inputPassword = Console.ReadLine();
+                    if (inputUsername != goodUsername || inputPassword != goodPassword)
                     {
                         Display("Je gebruikersnaam en/of wachtwoord is vekeerd, druk [ENTER] om het opnieuw te proberen, of druk [5] om terug te gaan");
                     }
-                    if (username == goodUsername && password == goodPassword)
+                    if (inputUsername == goodUsername && inputPassword == goodPassword)
                     {
                         Display("Druk [ENTER] om door te gaan of druk [5] om terug te gaan");
                     }
@@ -52,28 +52,12 @@ namespace Noodle
                 }
 
                 input = Console.ReadKey();
-                if (username == "admin" && password == "noodle1992" && input.Key == ConsoleKey.Enter)
-                {
-                    _option1_1.Show();
-                }
-                
-                else if (input.Key == ConsoleKey.D5)
-                {
-                    var MainMenu = new MainMenu();
-                    MainMenu.Show();
-                }
-                //input = Console.ReadKey();
-                
-                if (username != "admin" && password != "noodle1992")
-                {
-                    var Admin1 = new AdminInlog();
-                    Admin1.Show();
-                }
+
             }
             //als je 1, 2, 3, 4, etc drukt dan gaat ie naar de bijbehorende optie en dan naar het volgend cs bestand
-            while (input.Key != ConsoleKey.D1 && input.Key != ConsoleKey.D2 && input.Key != ConsoleKey.D3 && input.Key != ConsoleKey.D4 && input.Key != ConsoleKey.D5);
+            while (input.Key != ConsoleKey.Enter && input.Key != ConsoleKey.D5);
 
-            if (username == "admin" && password == "noodle1992")
+            if (inputUsername == goodUsername && inputPassword == goodPassword && input.Key == ConsoleKey.Enter)
             {
                 _option1_1.Show();
             }

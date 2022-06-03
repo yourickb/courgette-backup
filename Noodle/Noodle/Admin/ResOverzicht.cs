@@ -32,65 +32,59 @@ namespace Noodle
 
         public override void Show()
         {
-            static void JsonDing(string kaas, int jen)
+            static void jsonWriter(string reservering, int idCount)
             {
-                string Kees = kaas;
                 StringBuilder sb = new StringBuilder();
                 StringWriter sw = new StringWriter(sb);
-                int Jan = jen;
                 using (JsonWriter writer = new JsonTextWriter(sw))
                 {
                     writer.Formatting = Formatting.Indented;
 
                     writer.WriteStartObject();
                     writer.WritePropertyName("Reserveringen");
-                    writer.WriteValue(Kees);
+                    writer.WriteValue(reservering);
                     writer.WritePropertyName("IDCounter");
-                    writer.WriteValue(Jan);
+                    writer.WriteValue(idCount);
                     writer.WriteEnd();
                 }
                 string json = JsonConvert.SerializeObject(sb);
                 string sk = (sb.ToString());
-                //Console.Clear();
-                //Console.WriteLine(sb.ToString());
                 File.WriteAllText("ReservatieInformatie.json", sk);
-                var Admin = new Admin();
-                Admin.Show();
+                var ResOverzicht = new ResOverzicht();
+                ResOverzicht.Show();
+
             }
             static string ReturnLeeg()  
             {
                 return "Er zijn geen reserveringen";
             }
+
             Log("");
             var greetingsJson = new WelcomePage();
             string taalSetting = greetingsJson.Getlanguage(); //pakt de taal van de greetingsfile
-            ConsoleKeyInfo input, input0;
+            ConsoleKeyInfo input;
             var ReservatieInformatieJson = Deserialize();
-            string Reserverings = ReservatieInformatieJson.Reserveringen;
-            int IDCounters = ReservatieInformatieJson.IDCounter;
+            string Reserveringen = ReservatieInformatieJson.Reserveringen;
+            int IDCounter = ReservatieInformatieJson.IDCounter;
+            if (Reserveringen == "")
+            {
+                Reserveringen = ReturnLeeg();
+            }
+            string ReserveringenOpDatum = string.Join("\n", Reserveringen
+                .Split('\n')
+                .OrderBy(item => DateTime.TryParseExact(
+                    Regex.Match(item, "[0-9]{1,2}/[0-9]{1,2}/[0-9][0-9][0-9]{1,2}").Value,
+                    "d/M/yyyy",
+                    null,
+                    DateTimeStyles.AssumeLocal,
+                    out var date)
+                ? date
+                : DateTime.MaxValue));
             do
             {
                 {
-                    if (Reserverings == "")
-                    {
-                        Reserverings = ReturnLeeg();
-                    }
-                    string ReserveringenOpDatum = string.Join("\n", Reserverings
-                      .Split('\n')
-                      .OrderBy(item => DateTime.TryParseExact(
-                             Regex.Match(item, "[0-9]{1,2}/[0-9]{1,2}/[0-9][0-9][0-9]{1,2}").Value,
-                            "d/M/yyyy",
-                             null,
-                             DateTimeStyles.AssumeLocal,
-                             out var date)
-                         ? date
-                         : DateTime.MaxValue));
-
                     Console.Clear();
-                    Display("Kies alstublieft uit één van de volgende opties:");
-                    Display("[1] - Reserveringen gesorteerd op datum\n[2] - Reserveringen gesorteerd op ID");
-                    input0 = Console.ReadKey();
-                    if (taalSetting == "nl" && input0.Key == ConsoleKey.D1)
+                    if (taalSetting == "nl")
                     { 
                         Console.Clear();
                         Console.WriteLine("Hier is het overzicht van de reserveringen: ");
@@ -101,23 +95,6 @@ namespace Noodle
                         Console.WriteLine("[4] Verwijder een specifieke reservering");
                         Console.WriteLine("[5] Ga terug naar het Admin overzicht");
 
-                    }
-                    else if (taalSetting == "nl" && input0.Key == ConsoleKey.D2)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Hier is het overzicht van de reserveringen: ");
-                        Console.WriteLine(Reserverings);
-                        Console.WriteLine("\n[1] Zet er een voorbeeld reservering bij");
-                        Console.WriteLine("[2] Voeg of wijzig een reservering");
-                        Console.WriteLine("[3] Verwijder alle reserveringen");
-                        Console.WriteLine("[4] Verwijder een specifieke reservering");
-                        Console.WriteLine("[5] Ga terug naar het Admin overzicht");
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Here is the overview of the reservations: ");
-                        Console.WriteLine(ReservatieInformatieJson.Reserveringen);
                     }
                     // input wordt wat de gebruiker erin typt
                     input = Console.ReadKey();
@@ -131,50 +108,53 @@ namespace Noodle
                 Console.WriteLine("Hier is het overzicht van de reserveringen: ");
                 Console.WriteLine(ReservatieInformatieJson.Reserveringen);
                 Display("\nVoeg hier je reserving toe als: \ndd/mm/jjjj-x Personen-uu:mm-Naam: (naam hier)\nNote: Je hoeft er geen ID bij te zetten");
-                if (Reserverings != "Er zijn geen reserveringen")
+                if (Reserveringen != "Er zijn geen reserveringen")
                 {
-                    string Jantien = "ID" + Convert.ToString(IDCounters) + "-" + Console.ReadLine();
-                    Reserverings += Jantien + "\n";
+                    string nieuweReservering = "ID" + Convert.ToString(IDCounter) + "-" + Console.ReadLine();
+                    Reserveringen += nieuweReservering + "\n";
                 }
-                if (Reserverings == "Er zijn geen reserveringen")
+                if (Reserveringen == "Er zijn geen reserveringen")
                 {
-                    string Jantien = "ID" + Convert.ToString(IDCounters) + "-" + Console.ReadLine();
-                    Reserverings = Jantien + "\n";
+                    string nieuweReservering = "ID" + Convert.ToString(IDCounter) + "-" + Console.ReadLine();
+                    Reserveringen = nieuweReservering + "\n";
 
                 }
-                if (Reserverings == "")
+                if (Reserveringen == "")
                 {
-                    Reserverings = ReturnLeeg();
+                    Reserveringen = ReturnLeeg();
                 }
-                int Johan = IDCounters;
-                Johan += 1;
-                JsonDing(Reserverings, Johan);
+                int IDCountOmhoog = IDCounter;
+                IDCountOmhoog += 1;
+                jsonWriter(Reserveringen, IDCountOmhoog);
 
             }
             if (input.Key == ConsoleKey.D2)
             {
                 Console.Clear();
                 Console.WriteLine("Hier is het overzicht van de reserveringen: ");
-                Console.WriteLine(ReservatieInformatieJson.Reserveringen);
+                Console.WriteLine(ReserveringenOpDatum);
                 Console.WriteLine("\nTyp de reservering in die je wil wijzigen *exact* over");
                 string InputReservering = Console.ReadLine();
                 Console.WriteLine("\nTyp nu in waar je het in wil wijzigen als: \nIDxx-dd/mm/jjjj-x Personen-uu:mm-Naam: (naam hier)\nNote: ID hetzelfde laten");
                 string WijzigdeReserving = Console.ReadLine();
-                Reserverings = Reserverings.Replace(InputReservering + "\n", WijzigdeReserving + "\n");
-                if (Reserverings == "")
+                Reserveringen = Reserveringen.Replace(InputReservering + "\n", WijzigdeReserving + "\n");
+                if (Reserveringen == "")
                 {
-                    Reserverings = ReturnLeeg();
+                    Reserveringen = ReturnLeeg();
                 }
-                JsonDing(Reserverings, IDCounters);
+                jsonWriter(Reserveringen, IDCounter);
                 
 
             }
             if (input.Key == ConsoleKey.D3)
             {
-                Reserverings = ReturnLeeg();
-                int Johan = IDCounters;
-                Johan = 0;
-                JsonDing(Reserverings, Johan);
+                Reserveringen = ReturnLeeg();
+                int IDCountOmhoog = IDCounter;
+                if (IDCountOmhoog > 999)
+                {
+                    IDCountOmhoog = 1;
+                }
+                jsonWriter(Reserveringen, IDCountOmhoog);
 
             }
             if (input.Key == ConsoleKey.D4)
@@ -184,8 +164,8 @@ namespace Noodle
                 Console.WriteLine(ReservatieInformatieJson.Reserveringen);
                 Console.WriteLine("\nTyp de reservering in die je wil verwijderen *exact* over");
                 string temp = Console.ReadLine();
-                Reserverings = Reserverings.Replace(temp + "\n", "");
-                JsonDing(Reserverings, IDCounters);
+                Reserveringen = Reserveringen.Replace(temp + "\n", "");
+                jsonWriter(Reserveringen, IDCounter);
             }
 
             if (input.Key == ConsoleKey.D5)

@@ -24,12 +24,10 @@ namespace Noodle
         {
         public string language { get; set; }
         public string welkom_nl { get; set; }
-        public string welkom_en { get; set; }
         public bool ingelogd { get; set; }
         public string ingelogdeMember { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public int counter { get; set; }
         }
 
         public  Greetings Deserialize()
@@ -75,10 +73,7 @@ namespace Noodle
                 Console.WriteLine(greetingsJson.welkom_nl);
             }
 
-            if (greetingsJson.language.Equals("en"))
-            {
-                Console.WriteLine(greetingsJson.welkom_en);
-            }
+
 
             greetingsJson.ingelogd = false;
             greetingsJson.ingelogdeMember = null;
