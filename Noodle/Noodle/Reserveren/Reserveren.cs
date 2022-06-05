@@ -95,7 +95,7 @@ namespace Noodle
 
                 if (taalSetting == "nl")
                 {
-                    Display("Bedankt voor het kiezen voor de Noodle! \nOm te kunnen reserveren hebben wij wat informatie nodig");
+                    Display("Bedankt voor het kiezen voor Restaurant Noodle! \nOm te kunnen reserveren hebben wij wat informatie nodig");
                     Display("");
 
                     //Enter om te beginnen met reserveren
@@ -279,7 +279,7 @@ namespace Noodle
 
 
                     Display("\nMet hoeveel mensen wilt u komen? (als getal)");
-                    //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 4 plekken. Alles daarboven ervoor bellen
+                    //Controleert met hoeveel mensen ze komen. De tafels hebben maximaal 6 plekken. Alles daarboven ervoor bellen
                     bool geldigAantalPersonen = false;
                     while (geldigAantalPersonen == false)
                     {
@@ -304,7 +304,7 @@ namespace Noodle
                         }
                         else
                         {
-                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant of dit is geen geldig aantal personen.\nTyp een ander getal in of typ 'terug' om af te breken.");
+                            Display("\nVoor reserveringen van meer dan 6 personen moet u even bellen naar het restaurant. \nHeeft u een getal onder de 0 ingevuld? Vul dan gelieve een ander getal boven de 0 in of typ 'terug' om af te breken.");
                             geldigAantalPersonen = false;
                         }
                     }
