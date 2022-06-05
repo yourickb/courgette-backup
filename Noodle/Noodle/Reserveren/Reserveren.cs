@@ -32,6 +32,8 @@ namespace Noodle
             string reservatieNaam = null;
             int reservatieDatumMaand = 0;
             int reservatieDatumDag = 0;
+            string maandString = null;
+            string dagString = null;
             string reservatieTijd = null;
             string reservatieAantal = null;
             var ReservatieInformatieJson = Deserialize();
@@ -145,7 +147,7 @@ namespace Noodle
 
                     while (geldigeMaand == false)
                     {
-                        string maandString = Console.ReadLine();
+                        maandString = Console.ReadLine();
                         if (maandString == "terug")
                         {
                             Terug();
@@ -176,7 +178,7 @@ namespace Noodle
                     bool geldigeDag = false;
                     while (geldigeDag == false)
                     {
-                        string dagString = Console.ReadLine();
+                        dagString = Console.ReadLine();
                         if (dagString == "terug")
                         {
                             Terug();
@@ -321,19 +323,24 @@ namespace Noodle
                         // voor het toevoegen van 0 dmv HOF
                         if (reservatieDatumMaand <= 9)
                         {
-                            maandZero = nulErbij(Add0, Convert.ToString(reservatieDatumMaand), "0");
+                            maandZero = nulErbij(Add0, maandString, "0");
                         }
+                        
                         if (reservatieDatumDag <= 9)
                         {
-                            dagZero = nulErbij(Add0, Convert.ToString(reservatieDatumDag), "0");
+                            dagZero = nulErbij(Add0, dagString, "0");
                         }
-                        else
+                        
+                        if (reservatieDatumMaand > 9)
                         {
-                            dagZero = Convert.ToString(reservatieDatumDag);
                             maandZero = Convert.ToString(reservatieDatumMaand);
                         }
+
+                        if (reservatieDatumDag > 9)
+                        {
+                            dagZero = Convert.ToString(reservatieDatumDag);
+                        }
                         string reserveringString = "ID" + Convert.ToString(IDCounter) + "-" + dagZero + "/" + maandZero + "/" + Convert.ToString(reservatieDatumJaar) + "-" + reservatieAantal + " Personen-" + reservatieTijd + "-Naam: " + reservatieNaam;
-                        //Display(Jantien);
                         if (Reserveringen != ReturnLeeg())
                         {
                             Reserveringen += reserveringString + "\n";

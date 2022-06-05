@@ -106,7 +106,7 @@ namespace Noodle
             {
                 Console.Clear();
                 Console.WriteLine("Hier is het overzicht van de reserveringen: ");
-                Console.WriteLine(ReservatieInformatieJson.Reserveringen);
+                Console.WriteLine(ReserveringenOpDatum);
                 Display("\nVoeg hier je reserving toe als: \ndd/mm/jjjj-x Personen-uu:mm-Naam: (naam hier)\nNote: Je hoeft er geen ID bij te zetten");
                 if (Reserveringen != "Er zijn geen reserveringen")
                 {
@@ -161,7 +161,7 @@ namespace Noodle
             {
                 Console.Clear();
                 Console.WriteLine("Hier is het overzicht van de reserveringen: ");
-                Console.WriteLine(ReservatieInformatieJson.Reserveringen);
+                Console.WriteLine(ReserveringenOpDatum);
                 Console.WriteLine("\nTyp de reservering in die je wil verwijderen *exact* over");
                 string temp = Console.ReadLine();
                 Reserveringen = Reserveringen.Replace(temp + "\n", "");
